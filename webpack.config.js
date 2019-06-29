@@ -18,7 +18,6 @@ module.exports = {
                         presets: 'env'
                     }
                 }
-                
             }
         ]
     },
