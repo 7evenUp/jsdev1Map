@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yandexMap</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=5bb1d3e5-2bb6-49cf-8812-caff1c6d0582&lang=ru_RU" type="text/javascript"></script>
+    <style>
+        *, *:before, *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="styles/cluster.css">
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+<script id="popupTemplate" type="text/x-handlebars-template">
+    <header class="popup__header">
+        <div class="address">
+            <svg width="24" height="24" viewBox="0 0 24 24" class="address__icon">
+                <path
+                    d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12 ,2Z">
+                </path>
+            </svg>
+            <span class="address__text">{{address}}</span>
+        </div>
+        <button type="button" class="popup__close">
+            <svg width="24" height="24" viewBox="0 0 24 24" class="popup__close-icon">
+                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+            </svg>
+        </button>
+    </header>
+    <article class="popup__reviews"></article>
+    <div class="popup__form">
+        <h2 class="form__heading">ВАШ ОТЗЫВ</h2>
+        <form action="#" class="form" name="makeReview">
+            <input type="text" class="form__input" placeholder="Ваше имя" name="name" required>
+            <input type="text" class="form__input" placeholder="Укажите место" name="place" required>
+            <textarea name="comment" class="form__textarea form__input"
+                placeholder="Поделитесь впечатлениями" required></textarea>
+            <button type="submit" class="form__button" name="button">Добавить</button>
+        </form>
+    </div>
+</script>
+
+<script id="commentTemplate" type="text/x-handlebars-template">
+    <span class="review__name">{{name}}</span>
+    <span class="review__place">{{place}}</span>
+    <span class="review__date">/ {{date}}</span>
+    <p class="review__comment">{{comment}}</p>
+</script>
+
+<script src="./dist/bundle.js"></script>
+
+</html>

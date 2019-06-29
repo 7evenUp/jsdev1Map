@@ -1,0 +1,157 @@
+.popup {
+  min-width: 380px;
+  height: 525px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 9999;
+}
+
+.popup--hidden {
+  display: none;
+}
+
+.popup__header {
+  height: 45px;
+  background-color: #ff8663;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+}
+
+.address__icon {
+  fill: white;
+  width: 18px;
+}
+
+.address__text {
+  color: white;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.popup__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup__close:focus {
+  outline: none;
+}
+
+.popup__close-icon {
+  fill: white;
+}
+/* ----------------------------------------------------------------------------- */
+
+.popup__reviews {
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.review {
+  margin-top: 25px;
+}
+
+.review:first-child {
+  margin-top: 0;
+}
+
+.review__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.review__place {
+  font-size: 15px;
+  color: #4f4f4f;
+}
+
+.review__date {
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.review__comment {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ----------------------------------------------------------------------------- */
+.popup__form {
+  padding: 15px;
+  margin-top: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: lightgrey;
+  top: -35px;
+}
+
+.form__heading {
+  font-size: 18px;
+  color: #ff8663;
+}
+
+.form__input {
+  padding: 8px 12px;
+  margin-top: 15px;
+  border-radius: 15px;
+  border: 1px solid #c4c4c4;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: #ff8663; 
+}
+
+.form__textarea {
+  height: 130px;
+  resize: none;
+}
+
+.form__button {
+  background-color: #ff8663;
+  border: none;
+  padding: 8px 15px;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 15px;
+  width: 87px;
+  transition: .35s;
+  margin-left: auto;
+}
+
+.form__button:hover {
+  background-color: #ee6c46;
+}
+
+.form__button:focus {
+  outline: none;
+}
+

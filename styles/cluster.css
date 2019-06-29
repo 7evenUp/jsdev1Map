@@ -1,0 +1,23 @@
+.ballon_header {
+    color: lightskyblue;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ballon_body {
+    margin-top: 10px;
+}
+
+.ballon_body-info {
+    font-size: 15px;
+}
+
+.ballon_body-comment {
+    height: 55px;
+    margin-top: 5px;
+}
+
+.ballon_footer {
+    text-align: right;
+}
