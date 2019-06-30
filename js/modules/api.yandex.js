@@ -1,4 +1,4 @@
-import { openPopup } from '../mvc/view.js';
+import { openPopup, checkForOpenedPopup } from '../mvc/view.js';
 
 export default class {
     initMap(settings){
@@ -25,6 +25,7 @@ export default class {
                             header.addEventListener('click', (evt) => {
                                 const address = header.dataset.address;
                                 const coords = header.dataset.coords;
+                                checkForOpenedPopup();
                                 openPopup(address, coords, false, window.data[coords]);
                                 this.events.fire('userclose');
                             })
@@ -72,6 +73,7 @@ export default class {
         });
 
         myPlacemark1.events.add(['click'], (evt) => {
+            checkForOpenedPopup();
             openPopup(point.address, point.coords, evt, globalData)
         })
 

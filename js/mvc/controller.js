@@ -1,5 +1,5 @@
 import Map from '../modules/api.yandex'
-import { openPopup } from './view.js';
+import { openPopup, checkForOpenedPopup } from './view.js';
 
 export default class {
     constructor(){
@@ -20,11 +20,14 @@ export default class {
             this.point = await this.myApiMap.getMapPosition(evt);
             window.that = this;
 
-            if (!document.querySelector('#map').contains(document.querySelector('.popup'))) {
-                openPopup(this.point.address, this.point.coords, evt);
-            } else {
-                document.querySelector('#map').removeChild(document.querySelector('.popup'));
-            }
+            checkForOpenedPopup();
+            openPopup(this.point.address, this.point.coords, evt);
+
+            // if (!document.querySelector('#map').contains(document.querySelector('.popup'))) {
+            //     openPopup(this.point.address, this.point.coords, evt);
+            // } else {
+            //     document.querySelector('#map').removeChild(document.querySelector('.popup'));
+            // }
         })
     }
 }

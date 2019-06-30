@@ -43,6 +43,12 @@ export function openPopup(address, coords, evt, data=[]) {
     }
 }
 
+export function checkForOpenedPopup() {
+    if (document.querySelector('#map').contains(document.querySelector('.popup'))) {
+        document.querySelector('#map').removeChild(document.querySelector('.popup'));
+    }
+}
+
 function getFormData() {
     const nameInput    = document.querySelector('input[name="name"]');
     const placeInput   = document.querySelector('input[name="place"]');
