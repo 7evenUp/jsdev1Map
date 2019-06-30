@@ -25,8 +25,9 @@ export default class {
                             header.addEventListener('click', (evt) => {
                                 const address = header.dataset.address;
                                 const coords = header.dataset.coords;
+                                let data = JSON.parse(localStorage.getItem('data'));
                                 checkForOpenedPopup();
-                                openPopup(address, coords, false, window.data[coords]);
+                                openPopup(address, coords, false, data[coords]);
                                 this.events.fire('userclose');
                             })
                         }

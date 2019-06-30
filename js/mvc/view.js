@@ -28,12 +28,15 @@ export function openPopup(address, coords, evt, data=[]) {
 
         const formData = getFormData();
         appendReview(formData);
-        if (!(coords.join() in window.data)) {
-            window.data[coords.join()] = [];
-        }
-        window.data[coords.join()].push(formData);
 
-        window.that.myApiMap.createPlacemark({address:address, coords:coords}, window.data[coords.join()], formData);
+        let data = JSON.parse(localStorage.getItem('data'));
+        if (!(coords.join() in data)) {
+            data[coords.join()] = [];
+        }
+        data[coords.join()].push(formData);
+        localStorage.setItem('data', JSON.stringify(data));
+
+        window.that.myApiMap.createPlacemark({address:address, coords:coords}, data[coords.join()], formData);
     })
 
     document.querySelector('#map').appendChild(div);
