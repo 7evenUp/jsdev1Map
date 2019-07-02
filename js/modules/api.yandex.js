@@ -22,11 +22,13 @@ export default class {
                         build: function() {
                             this.constructor.superclass.build.call(this);
                             const header = document.querySelector('.ballon_header');
+                            checkForOpenedPopup();
+                            window.isBallonOpened = true;
                             header.addEventListener('click', (evt) => {
                                 const address = header.dataset.address;
                                 const coords = header.dataset.coords;
                                 let data = JSON.parse(localStorage.getItem('data'));
-                                checkForOpenedPopup();
+                                window.isBallonOpened = false;
                                 openPopup(address, coords, false, data[coords]);
                                 this.events.fire('userclose');
                             })

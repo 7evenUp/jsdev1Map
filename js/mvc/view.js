@@ -1,4 +1,7 @@
 export function openPopup(address, coords, evt, data=[]) {
+    if (window.isBallonOpened) {
+        return;
+    }
     const template = document.getElementById('popupTemplate').innerHTML;
     const render   = Handlebars.compile(template);
     const context  = {address: address}
