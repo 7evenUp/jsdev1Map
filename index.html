@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>yandexMap</title>
+    <title>Map using YandexMap's API</title>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=5bb1d3e5-2bb6-49cf-8812-caff1c6d0582&lang=ru_RU" type="text/javascript"></script>
     <style>
         *, *:before, *:after {
@@ -29,8 +29,8 @@
             height: 100vh;
         }
     </style>
-    <link rel="stylesheet" href="styles/popup.css">
-    <link rel="stylesheet" href="styles/cluster.css">
+    <link rel="stylesheet" href="./src/styles/cluster.css">
+    <link rel="stylesheet" href="./src/styles/popup.css">
 </head>
 
 <body>
@@ -73,6 +73,6 @@
     <p class="review__comment">{{comment}}</p>
 </script>
 
-<script src="./dist/bundle.js"></script>
+<script src="./dist/main.js"></script>
 
 </html>

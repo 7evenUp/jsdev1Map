@@ -7,6 +7,8 @@ export function openPopup(address, coords, evt, data=[]) {
     const context  = {address: address}
     const html     = render(context);
 
+    console.log('I am HERE')
+
     const div = document.createElement('div');
     div.classList.add('popup');
     if (evt) {
@@ -20,6 +22,8 @@ export function openPopup(address, coords, evt, data=[]) {
     }
 
     div.innerHTML = html;
+
+    console.log('I am HERE 2')
 
     const closeButton = div.querySelector('.popup__close');
     const form = div.querySelector('.form');

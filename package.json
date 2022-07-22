@@ -1,19 +1,31 @@
 {
-  "name": "mapYandex",
+  "name": "my-webpack-project",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "webpack --mode development",
-    "watch": "webpack-dev-server --progress --colors --open"
+    "watch": "webpack --watch",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "serve": "webpack serve"
   },
   "dependencies": {
-    "handlebars": "^4.1.2",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.2"
+    "handlebars": "^4.7.7",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^3.2.0"
-  }
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@webpack-cli/generators": "^2.5.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "style-loader": "^3.3.1"
+  },
+  "description": "My webpack project"
 }
