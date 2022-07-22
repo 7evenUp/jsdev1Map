@@ -1,4 +1,4 @@
-import { openPopup } from '../mvc/view.js';
+import { openPopup, checkForOpenedPopup } from '../mvc/view.js';
 
 export default class {
     initMap(settings){
@@ -22,10 +22,14 @@ export default class {
                         build: function() {
                             this.constructor.superclass.build.call(this);
                             const header = document.querySelector('.ballon_header');
+                            checkForOpenedPopup();
+                            window.isBallonOpened = true;
                             header.addEventListener('click', (evt) => {
                                 const address = header.dataset.address;
                                 const coords = header.dataset.coords;
-                                openPopup(address, coords, false, window.data[coords]);
+                                let data = JSON.parse(localStorage.getItem('data'));
+                                window.isBallonOpened = false;
+                                openPopup(address, coords, false, data[coords]);
                                 this.events.fire('userclose');
                             })
                         }
@@ -72,6 +76,7 @@ export default class {
         });
 
         myPlacemark1.events.add(['click'], (evt) => {
+            checkForOpenedPopup();
             openPopup(point.address, point.coords, evt, globalData)
         })
 

@@ -1,5 +1,5 @@
 import Map from '../modules/api.yandex'
-import { openPopup } from './view.js';
+import { openPopup, checkForOpenedPopup } from './view.js';
 
 export default class {
     constructor(){
@@ -14,17 +14,27 @@ export default class {
             controls: []
         })
         
-        window.data = {};
-        
         this.yandexApi.events.add('click', async evt => {
             this.point = await this.myApiMap.getMapPosition(evt);
             window.that = this;
 
-            if (!document.querySelector('#map').contains(document.querySelector('.popup'))) {
-                openPopup(this.point.address, this.point.coords, evt);
-            } else {
-                document.querySelector('#map').removeChild(document.querySelector('.popup'));
-            }
+            checkForOpenedPopup();
+            openPopup(this.point.address, this.point.coords, evt);
         })
+
+        if (localStorage.getItem('data')) {
+            let data = JSON.parse(localStorage.getItem('data'));
+
+            for (const coords in data) {
+                const geocode = await ymaps.geocode(coords);
+                const address = geocode.geoObjects.get(0).properties.get('text');
+
+                for (const info of data[coords]) {
+                    this.myApiMap.createPlacemark({ address: address, coords: coords.split(',') }, data[coords], info);
+                }
+            }
+        } else {
+            localStorage.setItem('data', '{}');
+        }
     }
 }
